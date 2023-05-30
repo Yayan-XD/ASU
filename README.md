@@ -1,5 +1,6 @@
 <h3>Installing</h3>
-$ pkg install python<br>
+$ pkg update && pkg upgrade
+$ pkg intall python<br>
 $ pkg install git<br>
 $ git clone https://github.com/Yayan-XD/ASU<br>
 $ cd ASU<br>
